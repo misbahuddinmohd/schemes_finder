@@ -602,7 +602,7 @@ const EligibilityAccordion = () => {
           <hr className="hr-line-footer"></hr>
           <div className="footer-link footer-copyright text-center py-3">
             <Link to="/">
-              <b>© 2022 Copyright : BenefitBuddy</b>
+              <b>© 2024 Copyright : BenefitBuddy</b>
             </Link>
           </div>
         </div>
