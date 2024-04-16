@@ -10,6 +10,8 @@ const Eligibility = () => {
     name: "",
     age: "",
     location: "",
+    gender: "",
+    occupation: "",
     caste: "",
     income: "",
   });
@@ -30,14 +32,17 @@ const Eligibility = () => {
         body: JSON.stringify(formData),
       });
       if (response.ok) {
-        navigate("/schemes", { state: { age: formData.age, income: formData.income } }); // Pass age and income to Schemes component
+        navigate("/schemes", { state: { age: formData.age, gender: formData.gender, occupation: formData.occupation, caste: formData.caste, income: formData.income } }); // Pass age and income to Schemes component
       } else {
         const errorData = await response.json();
-        alert("Error: " + JSON.stringify(errorData));
+        console.error("Error from response:", errorData);
+        navigate("/schemes", { state: { age: formData.age, gender: formData.gender, occupation: formData.occupation, caste: formData.caste, income: formData.income } }); // Pass age and income to Schemes component
+        // alert("Error: " + JSON.stringify(errorData));
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert("Failed to submit form. Please try again later.");
+      navigate("/schemes", { state: { age: formData.age, gender: formData.gender, occupation: formData.occupation, caste: formData.caste, income: formData.income } }); // Pass age and income to Schemes component
+      // alert("Failed to submit form. Please try again later.");
     }
   };
 
@@ -77,14 +82,33 @@ const Eligibility = () => {
             />
           </div>
           <div className="form-group">
+            <label>Gender:</label>
+            <select name="gender" value={formData.gender} onChange={handleChange} required>
+              <option value="">Select</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <label>Occupation:</label>
+            <select name="occupation" value={formData.occupation} onChange={handleChange} required>
+              <option value="">Select</option>
+              <option value="Student">Student</option>
+              <option value="Farmer">Farmer</option>
+              <option value="Employed">Employed</option>
+              <option value="Unemployed">Unemployed</option>
+              <option value="Self-employed">Self-employed</option>
+            </select>
+          </div>
+          <div className="form-group">
             <label>Caste:</label>
-            <input
-              type="text"
-              name="caste"
-              value={formData.caste}
-              onChange={handleChange}
-              required
-            />
+            <select name="caste" value={formData.caste} onChange={handleChange} required>
+              <option value="">Select</option>
+              <option value="BC">BC</option>
+              <option value="OBC">OBC</option>
+              <option value="SC">SC</option>
+              <option value="ST">ST</option>
+            </select>
           </div>
           <div className="form-group">
             <label>Income:</label>

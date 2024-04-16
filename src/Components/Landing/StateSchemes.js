@@ -5,18 +5,12 @@ import React, { useEffect } from 'react';
 
 
 const Education = () => {
-
-    
         useEffect(() => {
             // Scroll to the top of the page when the component mounts
             window.scrollTo(0, 0);
           }, []); 
     
     const scholarships = [
-
-     
-    
-
         {
           title: "Central Sector Scholarship Scheme of Top Class Education for SC Students",
           sponsor: "Government of India",

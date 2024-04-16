@@ -8,6 +8,7 @@ import education from "./education";
 import agriculture from "./agriculture";
 import health from "./health"
 import housing from "./housing"
+import {  useNavigate  } from "react-router-dom";
 
 import { Link as ScrollLink } from 'react-scroll';
  
@@ -15,24 +16,19 @@ import { Link as ScrollLink } from 'react-scroll';
 const Landing = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
  
-  
-const EligibilityAccordion = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleAccordion = () => {
-    setIsOpen(!isOpen);
-  }; }
-  
-  const handleSubmit = () => {
-    
+  const navigate = useNavigate();
+  const handleSubmit = (event) => {
+    event.preventDefault(); 
+    if (selectedState) {
+      if (selectedState === "Telangana") {
+        navigate("/schemesTelangana");
+      } else {
+        navigate("/Otherstates");
+      }
+    } else {
+      alert("Please select a state.");
+    }
   };
-
-
- 
-  
-
-
-
 
   const [selectedState, setSelectedState] = useState(""); // State to hold the selected state
 
@@ -113,9 +109,6 @@ const EligibilityAccordion = () => {
               </div>
               
         </div>
-
-
-
 
          {/*Categories Section*/}
 
@@ -394,12 +387,12 @@ const EligibilityAccordion = () => {
                 </div>
                 <div className=" scheme-box-submit">
                 <Link
-              to={`/StateSchemes`}
-              className="btn eligibility btn-outline-primary"
-              onClick={handleSubmit}
-            >
-              Submit
-            </Link>
+  to={'/schemes${selectedState}'}
+  className="btn eligibility btn-outline-primary"
+  onClick={handleSubmit}
+>
+  Submit
+</Link>
                 </div>
               </div>
             </div>
@@ -410,7 +403,7 @@ const EligibilityAccordion = () => {
           </div>
         </div>
 
-       {/* how ro use  */}
+       {/* how to use  */}
 
         <div className="how-to-use" id="howtouse">
           <h3>How to use </h3>

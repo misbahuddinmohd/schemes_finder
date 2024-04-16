@@ -28,6 +28,8 @@ const formDataSchema = new mongoose.Schema({
   name: String,
   age: Number,
   location: String,
+  gender: String,
+  occupation: String,
   caste: String,
   income: Number,
 });
