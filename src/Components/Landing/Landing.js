@@ -361,30 +361,7 @@ const Landing = () => {
                 </li>
                   </ul>
                 </div>
-                <div className=" scheme-selection-item-2">
-  <div className="input-group mb-3">
-    <input
-      type="text"
-      className="form-control"
-      placeholder="Enter Your Gender"
-      aria-label="Username"
-      aria-describedby="basic-addon1"
-      required // Add the required attribute here
-    />
-  </div>
-</div>
-                <div className="row scheme-selection-item-3">
-                  <div className="input-group mb-3">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Enter Occuption"
-                      aria-label="Username"
-                      aria-describedby="basic-addon1"
-                       required 
-                    />
-                  </div>
-                </div>
+                
                 <div className=" scheme-box-submit">
                 <Link
   to={'/schemes${selectedState}'}
